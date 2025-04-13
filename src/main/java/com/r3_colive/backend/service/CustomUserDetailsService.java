@@ -3,6 +3,7 @@ package com.r3_colive.backend.service;
 import com.r3_colive.backend.entity.AppUser;
 import com.r3_colive.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-	private final UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
